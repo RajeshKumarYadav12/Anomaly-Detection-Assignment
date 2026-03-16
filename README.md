@@ -1,4 +1,4 @@
-﻿# Behavioral Anomaly & Early Distress Detection
+# Behavioral Anomaly & Early Distress Detection
 
 ## Executive Summary
 Build personal baselines from historical behavioral data and alert when someone deviates significantly from their norm. This system adds the missing alert layer to Sentio Mind—detecting concerning patterns proactively without requiring new video processing pipelines.
