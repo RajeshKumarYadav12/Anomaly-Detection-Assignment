@@ -1,0 +1,17 @@
+{
+    "total_alerts": 2,
+    "alerts": [
+        {
+            "type": "SOCIAL_WITHDRAWAL",
+            "date": "day_4",
+            "severity": "MEDIUM",
+            "message": "Social engagement dropped with averted gaze"
+        },
+        {
+            "type": "SOCIAL_WITHDRAWAL",
+            "date": "day_5",
+            "severity": "MEDIUM",
+            "message": "Social engagement dropped with averted gaze"
+        }
+    ]
+}

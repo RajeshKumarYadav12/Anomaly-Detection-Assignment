@@ -1,0 +1,9 @@
+{
+    "date": "day_3",
+    "person_detected": true,
+    "wellbeing": 53,
+    "social_engagement": 69,
+    "energy": 58,
+    "gaze_direction": "forward",
+    "gaze_contact": true
+}
