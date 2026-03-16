@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Anomaly Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .summary-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .summary-card .label {
+            font-size: 0.95em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .alerts-section {
+            padding: 30px;
+        }
+        .alerts-section h2 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        .alert-card {
+            background: white;
+            border-left: 5px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .alert-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .severity-high {
+            border-left-color: #dc3545;
+            background: #fff8f8;
+        }
+        .severity-high .severity-badge {
+            background: #dc3545;
+        }
+        .severity-medium {
+            border-left-color: #ffc107;
+            background: #fffbf0;
+        }
+        .severity-medium .severity-badge {
+            background: #ffc107;
+            color: #333;
+        }
+        .severity-low {
+            border-left-color: #28a745;
+            background: #f8fff9;
+        }
+        .severity-low .severity-badge {
+            background: #28a745;
+        }
+        .severity-critical {
+            border-left-color: #e63946;
+            background: #ffe0e6;
+        }
+        .severity-critical .severity-badge {
+            background: #e63946;
+        }
+        .alert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .alert-type {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+        .severity-badge {
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .alert-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .detail-label {
+            font-size: 0.85em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .detail-value {
+            font-size: 1em;
+            color: #333;
+            font-weight: 500;
+        }
+        .alert-message {
+            background: rgba(0, 0, 0, 0.02);
+            border-left: 3px solid #667eea;
+            padding: 12px 15px;
+            border-radius: 4px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            border-top: 1px solid #e9ecef;
+        }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .alert-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Behavioral Anomaly Report</h1>
+            <p>Automated Detection System for Early Intervention</p>
+        </div>
+
+        <div class="summary">
+            <div class="summary-card">
+                <div class="number">2</div>
+                <div class="label">Total Alerts</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">0</div>
+                <div class="label">Critical</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">0</div>
+                <div class="label">High</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">2</div>
+                <div class="label">Medium</div>
+            </div>
+        </div>
+
+        <div class="alerts-section">
+            <h2>Detected Anomalies</h2>
+
+            <div class="alert-card severity-medium">
+                <div class="alert-header">
+                    <div class="alert-type">SOCIAL_WITHDRAWAL</div>
+                    <span class="severity-badge">MEDIUM</span>
+                </div>
+                <div class="alert-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Date</span>
+                        <span class="detail-value">day_4</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">SOCIAL_WITHDRAWAL</span>
+                    </div>
+                </div>
+                <div class="alert-message">
+                    <strong>Details:</strong> Social engagement dropped with averted gaze
+                </div>
+            </div>
+
+            <div class="alert-card severity-medium">
+                <div class="alert-header">
+                    <div class="alert-type">SOCIAL_WITHDRAWAL</div>
+                    <span class="severity-badge">MEDIUM</span>
+                </div>
+                <div class="alert-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Date</span>
+                        <span class="detail-value">day_5</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">SOCIAL_WITHDRAWAL</span>
+                    </div>
+                </div>
+                <div class="alert-message">
+                    <strong>Details:</strong> Social engagement dropped with averted gaze
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p style="color: #555; font-weight: 500; margin-bottom: 8px;">
+                Sentio Mind Behavioral Anomaly Detection
+            </p>
+            <p style="color: #999; font-size: 0.9em; margin-bottom: 10px;">
+                Counselor Alert Digest Report
+            </p>
+            <p style="color: #888; font-size: 0.85em; border-top: 1px solid #ddd; padding-top: 10px;">
+                Report Generated: <span id="timestamp"></span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("timestamp").textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

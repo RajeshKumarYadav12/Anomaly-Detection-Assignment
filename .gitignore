@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Large files (GitHub limit: 100MB)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+
+# Dataset
+Dataset_Assignment/
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+*.log
+*.pot
+
+# Flask
+instance/
+.webassets-cache
+
+# Keep these files
+!requirements.txt
+!README.md
+!solution.py
+!video_to_json.py
+!alert_digest.html
+!alert_feed.json
