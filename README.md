@@ -16,10 +16,8 @@ Analyze multi-day behavioral JSON data from \sample_data/\ or \Dataset_Assignmen
 Integration point: \/get_alerts\ Flask endpoint returns alert_feed.json for automated ingestion. Zero modifications to existing analysis pipeline.
 
 ## Input Data Format
-**Location:** \sample_data/\ folder (or Dataset_Assignment folder)
-**Format:** JSON files, one per day, minimum 5 days of data
-**Schema:**
-\\\json
+
+\\json
 {
   "day": 1,
   "wellbeing": 75,
@@ -29,7 +27,8 @@ Integration point: \/get_alerts\ Flask endpoint returns alert_feed.json for auto
   "absence": false,
   "participation": 90
 }
-\\\
+
+\\
 
 ## 7 Anomaly Categories to Detect
 
